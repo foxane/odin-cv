@@ -1,0 +1,40 @@
+:root {
+  --ff: Arial, 'TImes New Roman', sans-serif;
+  --clr-accent: rgb(115, 202, 242);
+  --btn-padding: 0.5em 1em;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--ff);
+  font-size: 1rem;
+}
+
+button {
+  background-color: var(--clr-accent);
+  color: rgb(0, 0, 0);
+  border: 1px solid black;
+  border-radius: 5px;
+
+  padding: var(--btn-padding);
+  line-height: 1.5;
+
+  font-family: var(--ff);
+  font-size: inherit;
+  font-weight: 500;
+
+  cursor: pointer;
+}
+
+input {
+  padding: 0.2em;
+
+  font-size: inherit;
+  font-family: var(--ff);
+  font-weight: 500;
+}

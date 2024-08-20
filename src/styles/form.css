@@ -1,0 +1,13 @@
+.form {
+  border: 1px solid black;
+
+  display: flex;
+  flex-flow: column nowrap;
+
+  max-width: 300px;
+  padding: 1rem;
+
+  label {
+    margin-top: 1rem;
+  }
+}
