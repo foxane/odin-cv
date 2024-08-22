@@ -26,6 +26,15 @@ const defaultData = {
     },
   ],
 
+  emptyEducation: {
+    id: '',
+    corp: '',
+    start: '',
+    end: '',
+    position: '',
+    description: '',
+  },
+
   experience: [
     {
       id: uuidv4(),

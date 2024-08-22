@@ -1,4 +1,4 @@
-import Input from './Input';
+import Input from './common/Input';
 
 function Personal({ setPersonal }) {
   const changePersonal = (e) => {

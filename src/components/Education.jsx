@@ -1,62 +1,75 @@
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import Input from './Input';
+import { defaultData } from './common/utils';
+import Input from './common/Input';
 import '../styles/education.css';
+export default Education;
 
-export default function Education({ education, setEducation }) {
-  const [isForm, setIsForm] = useState(false);
-  const changeForm = () => setIsForm(!isForm);
-  const eduList = education.map((item) => (
-    <EduCard key={item.id} schoolName={item.schoolName} />
-  ));
-  const addEdu = (newObj) => {
-    newObj.id = uuidv4();
-    console.log(newObj);
-    console.log(education);
-    setEducation([...education, newObj]);
-    console.log(education);
+function Education({ education, setEducation }) {
+  const [display, setDisplay] = useState('list');
+  const [currentItem, setCurrentItem] = useState(null);
+
+  const showEditForm = (item) => {
+    console.log(item);
+    setCurrentItem(item);
+    setDisplay('form');
   };
-  const removeEdu = (id) => {
-    setEducation(education.filter((item) => item.id === id));
-  };
-  const updateEdu = (id, newObj) => {
-    setEducation(education.map((item) => (item.id === id ? newObj : item)));
+  const showList = () => {
+    setCurrentItem(null);
+    setDisplay('list');
   };
 
   return (
     <div className="form education">
-      <h3>Education</h3>
-      {!isForm && eduList}
-      {isForm && <EduForm addEdu={addEdu} />}
-      <button type="button" onClick={changeForm}>
-        {isForm ? 'Im a form' : 'im a list'}
-      </button>
+      {display === 'list' ? (
+        <EducationList items={education} showEditForm={showEditForm} />
+      ) : (
+        <EducationForm item={currentItem} showList={showList} />
+      )}
     </div>
   );
 }
 
-function EduCard({ schoolName }) {
-  return (
-    <div className="edu-card">
-      <b>{schoolName}</b>
-    </div>
-  );
-}
+function EducationList({ items, showEditForm }) {
+  const list = items.map((item) => {
+    return (
+      <div
+        key={item.id}
+        className="edu-card cursor"
+        onClick={() => showEditForm(item)}
+      >
+        <p>{item.schoolName}</p>
+      </div>
+    );
+  });
 
-function EduForm({ addEdu }) {
-  const [eduObj, setEduObj] = useState({}); // Initialize with empty object
-  const submit = () => addEdu(eduObj);
-  const handler = (e) => {
-    const { id, value } = e.target;
-    setEduObj((prevState) => ({ ...prevState, [id]: value }));
-  };
   return (
     <>
-      <Input text="School name" id="schoolName" handler={handler} />
-      <Input text="Degree" id="degree" handler={handler} />
-      <Input text="Start date" id="start" type="date" handler={handler} />
-      <Input text="End" id="end" type="date" handler={handler} />
-      <button onClick={submit}>Add</button>
+      {list}
+      <button>Add</button>
+    </>
+  );
+}
+
+function EducationForm({ item, showList }) {
+  const [currentObj, setCurrentObj] = useState(
+    item !== null ? item : defaultData.emptyEducation,
+  );
+
+  const editValue = (e) => {
+    const { id, value } = e.target;
+    setCurrentObj((prevState) => ({ ...prevState, [id]: value }));
+  };
+
+  return (
+    <>
+      <Input
+        id="schoolName"
+        text={'School name'}
+        value={currentObj.schoolName}
+        handler={editValue}
+      />
+      <button onClick={showList}>Show list</button>
     </>
   );
 }

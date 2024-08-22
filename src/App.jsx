@@ -1,6 +1,6 @@
 // Deps
 import { useState } from 'react';
-import { defaultData } from './components/utils';
+import { defaultData } from './components/common/utils';
 
 // Components
 import Personal from './components/Personal';
