@@ -37,23 +37,32 @@ const defaultData = {
   experience: [
     {
       id: uuidv4(),
-      corp: 'E Corp',
+      company: 'E Corp',
+      position: 'Lowly Web Developer',
       start: '2018-02-12',
       end: '2019-05-10',
-      position: 'Lowly Web Developer',
       description:
         'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis, blanditiis.',
     },
     {
       id: uuidv4(),
-      corp: 'F Corp',
+      company: 'F Corp',
+      position: 'Mid Web Developer',
       start: '2018-02-12',
       end: '2019-05-10',
-      position: 'Mid Web Developer',
       description:
         'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis, blanditiis.',
     },
   ],
+
+  emptyExperience: {
+    id: '',
+    company: '',
+    position: '',
+    start: '',
+    end: '',
+    description: '',
+  },
 };
 
 const formatDate = (dateString) => {

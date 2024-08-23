@@ -1,6 +1,6 @@
-import Input from './common/Input';
+import { Input } from './common/Input';
 
-function Personal({ setPersonal }) {
+export default function Personal({ setPersonal }) {
   const changePersonal = (e) => {
     const { id, value } = e.target;
     setPersonal((prevState) => ({
@@ -19,5 +19,3 @@ function Personal({ setPersonal }) {
     </div>
   );
 }
-
-export default Personal;

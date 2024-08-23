@@ -1,4 +1,4 @@
-export default function Input({ id, handler, text, value, type = 'text' }) {
+function Input({ id, handler, text, value, type = 'text' }) {
   return (
     <>
       <label htmlFor={id}>{text}</label>
@@ -6,3 +6,14 @@ export default function Input({ id, handler, text, value, type = 'text' }) {
     </>
   );
 }
+
+function Textarea({ id, text, value, handler }) {
+  return (
+    <>
+      <label htmlFor={id}>{text}</label>
+      <textarea id={id} onChange={handler} value={value}></textarea>
+    </>
+  );
+}
+
+export { Input, Textarea };
