@@ -46,3 +46,12 @@ input {
 .cursor:hover {
   background-color: rgb(95, 95, 95);
 }
+
+.delete-btn {
+  border-radius: 50%;
+  padding: 5px 10px;
+  display: inline;
+}
+.delete-btn:hover {
+  background-color: RED;
+}

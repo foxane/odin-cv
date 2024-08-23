@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { defaultData } from './common/utils';
 import Input from './common/Input';
@@ -8,6 +8,11 @@ export default Education;
 function Education({ education, setEducation }) {
   const [display, setDisplay] = useState('list');
   const [currentItem, setCurrentItem] = useState(null);
+
+  // DEBUG : Watch education state on change
+  useEffect(() => {
+    console.table(education);
+  }, [education]);
 
   // UI state
   const showList = () => {
@@ -28,6 +33,16 @@ function Education({ education, setEducation }) {
     setEducation((prevState) => [...prevState, item]);
     console.table(education);
   };
+  const editEducation = (editedItem) => {
+    setEducation((prevState) =>
+      prevState.map((item) => (item.id === editedItem.id ? editedItem : item)),
+    );
+  };
+  const deleteEducation = (deletedItem) => {
+    setEducation((prevState) =>
+      prevState.filter((item) => item !== deletedItem),
+    );
+  };
 
   return (
     <div className="form education">
@@ -37,12 +52,14 @@ function Education({ education, setEducation }) {
           items={education}
           showEditForm={showEditForm}
           showAddForm={showAddForm}
+          deleteEducation={deleteEducation}
         />
       ) : (
         <EducationForm
           item={currentItem}
           showList={showList}
           addEducation={addEducation}
+          editEducation={editEducation}
         />
       )}
     </div>
@@ -50,7 +67,7 @@ function Education({ education, setEducation }) {
 }
 
 // List component
-function EducationList({ items, showEditForm, showAddForm }) {
+function EducationList({ items, showEditForm, showAddForm, deleteEducation }) {
   const list = items.map((item) => {
     return (
       <div
@@ -59,6 +76,15 @@ function EducationList({ items, showEditForm, showAddForm }) {
         onClick={() => showEditForm(item)}
       >
         <p>{item.schoolName}</p>
+        <button
+          className="delete-btn"
+          onClick={(e) => {
+            e.stopPropagation();
+            deleteEducation(item);
+          }}
+        >
+          X
+        </button>
       </div>
     );
   });
@@ -72,7 +98,7 @@ function EducationList({ items, showEditForm, showAddForm }) {
 }
 
 // Form component
-function EducationForm({ item, showList, addEducation }) {
+function EducationForm({ item, showList, addEducation, editEducation }) {
   let isEdit = item === null ? false : true;
   const [currentObj, setCurrentObj] = useState(
     isEdit ? item : defaultData.emptyEducation,
@@ -85,16 +111,19 @@ function EducationForm({ item, showList, addEducation }) {
   };
 
   // Form submission
-  const addHandler = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    const updatedObj = { ...currentObj, id: uuidv4() };
-    addEducation(updatedObj);
+    if (isEdit) {
+      editEducation(currentObj);
+    } else {
+      const updatedObj = { ...currentObj, id: uuidv4() }; // Workaround on react async state update
+      addEducation(updatedObj);
+    }
     showList();
   };
-  const editHandler = () => {};
 
   return (
-    <form onSubmit={isEdit ? editHandler : addHandler} className="form">
+    <form onSubmit={handleSubmit} className="form">
       <Input
         id="schoolName"
         text={'School name'}
@@ -121,7 +150,7 @@ function EducationForm({ item, showList, addEducation }) {
         handler={editValue}
         type="date"
       />
-      <button onClick={showList} type="reset">
+      <button onClick={showList} type="button">
         Cancel
       </button>
       <button type="submit">{isEdit ? 'Save' : 'Add'}</button>

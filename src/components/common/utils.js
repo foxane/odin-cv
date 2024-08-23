@@ -21,7 +21,7 @@ const defaultData = {
       id: uuidv4(),
       schoolName: 'Saints University',
       degree: 'Master in Kindness',
-      start: '2020-8-15',
+      start: '2020-08-15',
       end: '2024-10-16',
     },
   ],
