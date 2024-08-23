@@ -28,11 +28,10 @@ const defaultData = {
 
   emptyEducation: {
     id: '',
-    corp: '',
+    schoolName: '',
+    degree: '',
     start: '',
     end: '',
-    position: '',
-    description: '',
   },
 
   experience: [

@@ -19,7 +19,7 @@ export default function App() {
     <>
       <Personal personal={personal} setPersonal={setPersonal} />
       <Education education={education} setEducation={setEducation} />
-      <Result personal={personal} />
+      <Result personal={personal} education={education} />
     </>
   );
 }

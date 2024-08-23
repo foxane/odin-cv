@@ -1,7 +1,8 @@
-export default function Result({ personal }) {
+export default function Result({ personal, education }) {
   return (
     <div className="result">
       <PersonalResult personal={personal} />
+      <EducationResult education={education} />
     </div>
   );
 }
@@ -17,4 +18,19 @@ function PersonalResult({ personal }) {
       <p>{position}</p>
     </div>
   );
+}
+
+function EducationResult({ education }) {
+  const educationList = education.map((item) => {
+    return (
+      <div key={item.id} className="edu-card">
+        <p>{item.schoolName}</p>
+        <p>{item.degree}</p>
+        <p>{item.start}</p>
+        <p>{item.end}</p>
+      </div>
+    );
+  });
+
+  return educationList;
 }

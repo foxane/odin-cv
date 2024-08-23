@@ -9,28 +9,48 @@ function Education({ education, setEducation }) {
   const [display, setDisplay] = useState('list');
   const [currentItem, setCurrentItem] = useState(null);
 
-  const showEditForm = (item) => {
-    console.log(item);
-    setCurrentItem(item);
-    setDisplay('form');
-  };
+  // UI state
   const showList = () => {
     setCurrentItem(null);
     setDisplay('list');
   };
+  const showEditForm = (item) => {
+    setCurrentItem(item);
+    setDisplay('form');
+  };
+  const showAddForm = () => {
+    setCurrentItem(null);
+    setDisplay('form');
+  };
+
+  // Object State
+  const addEducation = (item) => {
+    setEducation((prevState) => [...prevState, item]);
+    console.table(education);
+  };
 
   return (
     <div className="form education">
+      <h3>Education</h3>
       {display === 'list' ? (
-        <EducationList items={education} showEditForm={showEditForm} />
+        <EducationList
+          items={education}
+          showEditForm={showEditForm}
+          showAddForm={showAddForm}
+        />
       ) : (
-        <EducationForm item={currentItem} showList={showList} />
+        <EducationForm
+          item={currentItem}
+          showList={showList}
+          addEducation={addEducation}
+        />
       )}
     </div>
   );
 }
 
-function EducationList({ items, showEditForm }) {
+// List component
+function EducationList({ items, showEditForm, showAddForm }) {
   const list = items.map((item) => {
     return (
       <div
@@ -46,30 +66,65 @@ function EducationList({ items, showEditForm }) {
   return (
     <>
       {list}
-      <button>Add</button>
+      <button onClick={showAddForm}>Add</button>
     </>
   );
 }
 
-function EducationForm({ item, showList }) {
+// Form component
+function EducationForm({ item, showList, addEducation }) {
+  let isEdit = item === null ? false : true;
   const [currentObj, setCurrentObj] = useState(
-    item !== null ? item : defaultData.emptyEducation,
+    isEdit ? item : defaultData.emptyEducation,
   );
 
+  // Input changes
   const editValue = (e) => {
     const { id, value } = e.target;
     setCurrentObj((prevState) => ({ ...prevState, [id]: value }));
   };
 
+  // Form submission
+  const addHandler = (e) => {
+    e.preventDefault();
+    const updatedObj = { ...currentObj, id: uuidv4() };
+    addEducation(updatedObj);
+    showList();
+  };
+  const editHandler = () => {};
+
   return (
-    <>
+    <form onSubmit={isEdit ? editHandler : addHandler} className="form">
       <Input
         id="schoolName"
         text={'School name'}
         value={currentObj.schoolName}
         handler={editValue}
       />
-      <button onClick={showList}>Show list</button>
-    </>
+      <Input
+        id="degree"
+        text={'Degree'}
+        value={currentObj.degree}
+        handler={editValue}
+      />
+      <Input
+        id="start"
+        text={'Start date'}
+        value={currentObj.start}
+        handler={editValue}
+        type="date"
+      />
+      <Input
+        id="end"
+        text={'End date'}
+        value={currentObj.end}
+        handler={editValue}
+        type="date"
+      />
+      <button onClick={showList} type="reset">
+        Cancel
+      </button>
+      <button type="submit">{isEdit ? 'Save' : 'Add'}</button>
+    </form>
   );
 }
