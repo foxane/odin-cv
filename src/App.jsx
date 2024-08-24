@@ -5,6 +5,7 @@ import { defaultData } from './components/common/utils';
 // Components
 import Personal from './components/Personal';
 import Education from './components/Education';
+import Experience from './components/Experience';
 import Result from './components/Result';
 
 // Cascader styler or somth (css)
@@ -14,12 +15,18 @@ import './styles/form.css';
 export default function App() {
   const [personal, setPersonal] = useState(defaultData.personal);
   const [education, setEducation] = useState(defaultData.education);
+  const [experience, setExperience] = useState(defaultData.experience);
 
   return (
     <>
       <Personal personal={personal} setPersonal={setPersonal} />
       <Education education={education} setEducation={setEducation} />
-      <Result personal={personal} education={education} />
+      <Experience experience={experience} setExperience={setExperience} />
+      <Result
+        personal={personal}
+        education={education}
+        experience={experience}
+      />
     </>
   );
 }

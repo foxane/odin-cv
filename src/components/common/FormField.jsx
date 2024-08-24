@@ -35,9 +35,9 @@ export default function FormField({ type, currentItem, inputChange }) {
   const experienceField = (
     <>
       <Input
-        id="corp"
+        id="company"
         text={'Company name'}
-        value={currentItem.corp}
+        value={currentItem.company}
         handler={inputChange}
       />
       <Input
@@ -52,12 +52,14 @@ export default function FormField({ type, currentItem, inputChange }) {
         text={'Start date'}
         value={currentItem.start}
         handler={inputChange}
+        type="date"
       />
       <Input
         id="end"
         text={'End date'}
         value={currentItem.end}
         handler={inputChange}
+        type="date"
       />
       <Textarea
         id="description"

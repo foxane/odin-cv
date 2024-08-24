@@ -1,16 +1,15 @@
 import { useState, useEffect } from 'react';
-import List from './common/List';
 import Form from './common/Form';
-import '../styles/education.css';
+import List from './common/List';
 
-export default function Education({ education, setEducation }) {
+export default function Experience({ experience, setExperience }) {
   const [display, setDisplay] = useState('list');
   const [currentItem, setCurrentItem] = useState(null);
 
   // DEBUG : Watch education state on change
   useEffect(() => {
-    console.table(education);
-  }, [education]);
+    console.table(experience);
+  }, [experience]);
 
   // UI state
   const showList = () => {
@@ -26,41 +25,41 @@ export default function Education({ education, setEducation }) {
     setDisplay('form');
   };
 
-  // Object State
-  const addEducation = (item) => {
-    setEducation((prevState) => [...prevState, item]);
+  // Obj state
+  const addItem = (newItem) => {
+    setExperience((prevState) => [...prevState, newItem]);
   };
-  const updateEducation = (updatedItem) => {
-    setEducation((prevState) =>
+  const updateItem = (updatedItem) => {
+    setExperience((prevState) => {
       prevState.map((item) =>
         item.id === updatedItem.id ? updatedItem : item,
-      ),
-    );
+      );
+    });
   };
-  const deleteEducation = (deletedItem) => {
-    setEducation((prevState) =>
-      prevState.filter((item) => item !== deletedItem),
-    );
+  const deleteItem = (itemToDelete) => {
+    setExperience((prevState) => {
+      prevState.filter((item) => item !== itemToDelete);
+    });
   };
 
   return (
-    <div className="form education">
-      <h3>Education</h3>
+    <div className="form experience">
+      <h3>Experience</h3>
       {display === 'list' ? (
         <List
-          itemList={education}
-          text="schoolName"
+          itemList={experience}
+          text="company"
           showEditForm={showEditForm}
           showAddForm={showAddForm}
-          deleteItem={deleteEducation}
+          deleteItem={deleteItem}
         />
       ) : (
         <Form
-          type="education"
+          type="experience"
           item={currentItem}
           showList={showList}
-          addItem={addEducation}
-          editItem={updateEducation}
+          addItem={addItem}
+          editItem={updateItem}
         />
       )}
     </div>
