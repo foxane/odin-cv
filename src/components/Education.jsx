@@ -27,19 +27,19 @@ export default function Education({ education, setEducation }) {
   };
 
   // Object State
-  const addEducation = (item) => {
+  const addItem = (item) => {
     setEducation((prevState) => [...prevState, item]);
   };
-  const updateEducation = (updatedItem) => {
+  const updateItem = (updatedItem) => {
     setEducation((prevState) =>
       prevState.map((item) =>
         item.id === updatedItem.id ? updatedItem : item,
       ),
     );
   };
-  const deleteEducation = (deletedItem) => {
+  const deleteItem = (itemToDelete) => {
     setEducation((prevState) =>
-      prevState.filter((item) => item !== deletedItem),
+      prevState.filter((item) => item !== itemToDelete),
     );
   };
 
@@ -52,15 +52,15 @@ export default function Education({ education, setEducation }) {
           text="schoolName"
           showEditForm={showEditForm}
           showAddForm={showAddForm}
-          deleteItem={deleteEducation}
+          deleteItem={deleteItem}
         />
       ) : (
         <Form
           type="education"
           item={currentItem}
           showList={showList}
-          addItem={addEducation}
-          editItem={updateEducation}
+          addItem={addItem}
+          editItem={updateItem}
         />
       )}
     </div>

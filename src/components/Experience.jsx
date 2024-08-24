@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import Form from './common/Form';
 import List from './common/List';
+import Form from './common/Form';
 
 export default function Experience({ experience, setExperience }) {
   const [display, setDisplay] = useState('list');
@@ -30,16 +30,16 @@ export default function Experience({ experience, setExperience }) {
     setExperience((prevState) => [...prevState, newItem]);
   };
   const updateItem = (updatedItem) => {
-    setExperience((prevState) => {
+    setExperience((prevState) =>
       prevState.map((item) =>
         item.id === updatedItem.id ? updatedItem : item,
-      );
-    });
+      ),
+    );
   };
   const deleteItem = (itemToDelete) => {
-    setExperience((prevState) => {
-      prevState.filter((item) => item !== itemToDelete);
-    });
+    setExperience((prevState) =>
+      prevState.filter((item) => item !== itemToDelete),
+    );
   };
 
   return (
