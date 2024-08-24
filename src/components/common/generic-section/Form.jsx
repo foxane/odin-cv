@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { defaultData } from './utils';
+import { defaultData } from '../utils';
 import { v4 as uuidv4 } from 'uuid';
 import FormField from './FormField';
 

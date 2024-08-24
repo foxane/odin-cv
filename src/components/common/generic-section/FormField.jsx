@@ -1,4 +1,4 @@
-import { Input, Textarea } from './Input';
+import { Input, Textarea } from '../Input';
 
 export default function FormField({ type, currentItem, inputChange }) {
   const educationField = (

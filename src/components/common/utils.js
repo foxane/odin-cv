@@ -70,4 +70,8 @@ const formatDate = (dateString) => {
   return date;
 };
 
-export { defaultData, formatDate };
+const capitalize = (text) => {
+  return text.charAt(0).toUpperCase() + text.slice(1);
+};
+
+export { defaultData, formatDate, capitalize };
