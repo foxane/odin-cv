@@ -1,5 +1,4 @@
-import Section from './common/generic-section/Section';
-import '../styles/education.css';
+import Section from '../common/generic-section/Section';
 
 export default function Education({ education, setEducation }) {
   return (

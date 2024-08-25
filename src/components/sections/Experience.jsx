@@ -1,4 +1,4 @@
-import Section from './common/generic-section/Section';
+import Section from '../common/generic-section/Section';
 
 export default function Experience({ experience, setExperience }) {
   return (

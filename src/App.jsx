@@ -3,10 +3,10 @@ import { useState } from 'react';
 import { defaultData } from './components/common/utils';
 
 // Components
-import Personal from './components/Personal';
-import Education from './components/Education';
-import Experience from './components/Experience';
-import Result from './components/Result';
+import Personal from './components/sections/Personal';
+import Education from './components/sections/Education';
+import Experience from './components/sections/Experience';
+import Result from './components/sections/Result';
 
 // Cascader styler or somth (css)
 import './styles/index.css';
@@ -19,9 +19,11 @@ export default function App() {
 
   return (
     <>
-      <Personal personal={personal} setPersonal={setPersonal} />
-      <Education education={education} setEducation={setEducation} />
-      <Experience experience={experience} setExperience={setExperience} />
+      <div className="input-section">
+        <Personal personal={personal} setPersonal={setPersonal} />
+        <Education education={education} setEducation={setEducation} />
+        <Experience experience={experience} setExperience={setExperience} />
+      </div>
       <Result
         personal={personal}
         education={education}
