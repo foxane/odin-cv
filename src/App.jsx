@@ -10,7 +10,8 @@ import Result from './components/sections/Result';
 
 // Cascader styler or somth (css)
 import './styles/index.css';
-import './styles/form.css';
+import './styles/input-section.css';
+import './styles/result.css';
 
 export default function App() {
   const [personal, setPersonal] = useState(defaultData.personal);

@@ -1,7 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 :root {
-  --ff: Arial, 'TImes New Roman', sans-serif;
-  --clr-accent: rgb(115, 202, 242);
-  --btn-padding: 0.5em 1em;
+  --ff: Roboto, Arial, serif;
+  --font-result: Arial, 'Times new roman';
+
+  --clr-accent: rgb(33, 158, 197);
+  --clr-accent-hover: rgb(38, 190, 236);
 }
 
 * {
@@ -11,47 +15,34 @@
 }
 
 body {
-  font-family: var(--ff);
-  font-size: 1rem;
+  font: 1.2em var(--ff);
   padding: 2rem;
+  background-color: rgb(241, 239, 239);
 }
 
+input,
 button {
-  background-color: var(--clr-accent);
-  color: rgb(0, 0, 0);
-  border: 1px solid black;
-  border-radius: 5px;
-
-  padding: var(--btn-padding);
-  line-height: 1.5;
-
-  font-family: var(--ff);
-  font-size: inherit;
-  font-weight: 500;
-
-  cursor: pointer;
+  font-size: 1.2rem;
 }
 
-input {
-  padding: 0.2em;
+textarea {
+  font-size: 1rem;
+  font-family: Arial, Helvetica, sans-serif;
+  resize: vertical;
+}
 
-  font-size: inherit;
-  font-family: var(--ff);
-  font-weight: 500;
+input,
+textarea {
+  padding: 0.3rem;
 }
 
 .cursor {
   cursor: pointer;
 }
-.cursor:hover {
-  background-color: rgb(95, 95, 95);
-}
 
-.delete-btn {
-  border-radius: 50%;
-  padding: 5px 10px;
-  display: inline;
-}
-.delete-btn:hover {
-  background-color: RED;
+#root {
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+  gap: 2rem;
 }

@@ -1,0 +1,115 @@
+.input-section {
+  max-width: 400px;
+}
+
+.form,
+.sub-form {
+  display: flex;
+  flex-flow: column nowrap;
+  border-radius: 10px;
+  padding: 0.7rem;
+  margin-bottom: 0.5rem;
+  box-shadow: -2px 2px 5px 0px rgb(198, 197, 197);
+  background-color: #fff;
+
+  label {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 1rem;
+  }
+  input,
+  textarea {
+    margin-top: 0.2rem;
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(228, 223, 223);
+  }
+  input:last-of-type,
+  textarea:last-of-type {
+    margin-bottom: 1rem;
+  }
+
+  .add-btn {
+    align-self: center;
+    background-color: var(--clr-accent);
+    border-radius: 5px;
+    color: white;
+    border: 1px solid black;
+    padding: 0.3rem 0.5rem;
+  }
+  .add-btn:hover,
+  .add-btn:focus {
+    background-color: var(--clr-accent-hover);
+  }
+}
+.sub-form {
+  border: none;
+  box-shadow: none;
+  padding: 0;
+
+  .form-btn {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+
+    button {
+      padding: 0.4em;
+      border-radius: 5px;
+      border: 1px solid black;
+      background-color: rgb(228, 223, 223);
+    }
+    .submit {
+      background-color: var(--clr-accent);
+      color: white;
+    }
+  }
+}
+
+.section-header {
+  position: relative;
+  text-align: center;
+  transition: color 0.25s;
+
+  svg {
+    width: 1.5rem;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: fill 0.25s;
+  }
+
+  svg:hover,
+  svg:focus {
+    fill: var(--clr-accent);
+  }
+}
+
+.section-header:hover {
+  color: var(--clr-accent);
+}
+
+.card {
+  border: 1px solid rgb(179, 179, 179);
+  display: flex;
+  justify-content: space-between;
+  padding: 0.2rem;
+  border-radius: 5px;
+  background-color: rgb(233, 233, 233);
+  margin: 0.5rem 0;
+
+  .delete-btn {
+    border: none;
+    background-color: transparent;
+  }
+}
+
+.card:hover,
+.card:focus {
+  border: 1px solid black;
+  background-color: rgb(220, 218, 218);
+}
+.delete-btn:hover,
+.delete-btn:focus {
+  color: red;
+  border: none;
+}
