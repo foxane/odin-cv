@@ -1,5 +1,5 @@
 .input-section {
-  max-width: 400px;
+  min-width: 400px;
 }
 
 .form,
