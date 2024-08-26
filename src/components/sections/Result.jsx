@@ -12,11 +12,13 @@ function PersonalResult({ personal }) {
   const { name, tel, email, address, position } = personal;
   return (
     <div className="personal">
-      <h1>{name}</h1>
-      <p>{tel}</p>
-      <p>{email}</p>
-      <p>{address}</p>
-      <p>{position}</p>
+      <h2>{name}</h2>
+      <div className="details">
+        <p>{tel}</p>
+        <p>{email}</p>
+        <p>{address}</p>
+        <p>{position}</p>
+      </div>
     </div>
   );
 }
@@ -24,30 +26,56 @@ function PersonalResult({ personal }) {
 function EducationResult({ education }) {
   const educationList = education.map((item) => {
     return (
-      <div key={item.id} className="edu-card">
-        <p>{item.schoolName}</p>
-        <p>{item.degree}</p>
-        <p>{item.start}</p>
-        <p>{item.end}</p>
+      <div key={item.id} className="result-card">
+        <div className="left">
+          <div className="date">
+            <p>{item.start}</p>
+            <p className="separator">~</p>
+            <p>{item.end}</p>
+          </div>
+          <p>{item.location}</p>
+        </div>
+        <div className="right">
+          <h4>{item.schoolName}</h4>
+          <p>{item.degree}</p>
+        </div>
       </div>
     );
   });
 
-  return educationList;
+  return (
+    <div className="result-container education">
+      <h3>Education</h3>
+      {educationList}
+    </div>
+  );
 }
 
 function ExperienceResult({ experience }) {
   const experienceList = experience.map((item) => {
     return (
-      <div key={item.id} className="edu-card">
-        <p>{item.company}</p>
-        <p>{item.position}</p>
-        <p>{item.start}</p>
-        <p>{item.end}</p>
-        <p>{item.description}</p>
+      <div key={item.id} className="result-card">
+        <div className="left">
+          <div className="date">
+            <p>{item.start}</p>
+            <p className="separator">~</p>
+            <p>{item.end}</p>
+          </div>
+          <p>{item.location}</p>
+        </div>
+        <div className="right">
+          <h4>{item.company}</h4>
+          <i>{item.position}</i>
+          <p>{item.description}</p>
+        </div>
       </div>
     );
   });
 
-  return experienceList;
+  return (
+    <div className="result-container experience">
+      <h3>Experience</h3>
+      {experienceList}
+    </div>
+  );
 }

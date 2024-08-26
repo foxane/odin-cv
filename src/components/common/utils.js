@@ -1,28 +1,29 @@
 import { v4 as uuidv4 } from 'uuid';
-
 const defaultData = {
   personal: {
-    name: 'Josephin Ganardo',
-    email: 'jganardo@corp.com',
-    tel: '00 99274',
-    address: 'Jakarta, Indonesia',
-    position: 'Wengdev',
+    name: 'Klein Moretti',
+    email: 'thatfacelessguy@lotm.com',
+    tel: '+1 555-123-4567',
+    address: 'New York, NY, USA',
+    position: 'Software Engineer',
   },
 
   education: [
     {
       id: uuidv4(),
-      schoolName: 'University of Degenerate',
-      degree: 'Bachelor in Baddesery',
-      start: '2016-07-21',
-      end: '2020-06-10',
+      schoolName: 'New York University',
+      degree: 'Bachelor of Science in Computer Science',
+      location: 'New York, NY',
+      start: '2015/09',
+      end: '2019/05',
     },
     {
       id: uuidv4(),
-      schoolName: 'Saints University',
-      degree: 'Master in Kindness',
-      start: '2020-08-15',
-      end: '2024-10-16',
+      schoolName: 'Columbia University',
+      degree: 'Master of Science in Software Engineering',
+      location: 'New York, NY',
+      start: '2019/09',
+      end: '2021/05',
     },
   ],
 
@@ -30,6 +31,7 @@ const defaultData = {
     id: '',
     schoolName: '',
     degree: '',
+    location: '',
     start: '',
     end: '',
   },
@@ -37,21 +39,23 @@ const defaultData = {
   experience: [
     {
       id: uuidv4(),
-      company: 'E Corp',
-      position: 'Lowly Web Developer',
-      start: '2018-02-12',
-      end: '2019-05-10',
+      company: 'Tech Innovations Inc.',
+      position: 'Junior Software Engineer',
+      location: 'New York, NY',
+      start: '2019/06',
+      end: '2021/03',
       description:
-        'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis, blanditiis.',
+        "Deploy on friday, did not come home on the weekend. Fixed bug on production while only make one additional bug. Took 6 days to change single line of code. I don't know what else to write",
     },
     {
       id: uuidv4(),
-      company: 'F Corp',
-      position: 'Mid Web Developer',
-      start: '2018-02-12',
-      end: '2019-05-10',
+      company: 'Advanced Solutions LLC',
+      position: 'Software Engineer',
+      location: 'New York, NY',
+      start: '2021/04',
+      end: 'present',
       description:
-        'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis, blanditiis.',
+        'Lead development of scalable software solutions, managed project timelines, and provided mentorship to junior developers. Focused on improving system performance and user experience.',
     },
   ],
 

@@ -7,7 +7,7 @@ import Form from './Form';
 export default function Section({ items, setItems, type, textKey }) {
   const [display, setDisplay] = useState('list');
   const [currentItem, setCurrentItem] = useState(null);
-  const [isMinimized, setIsMinimized] = useState(true);
+  const [isMinimized, setIsMinimized] = useState(false);
 
   // DEBUG: Show items
   useEffect(() => {

@@ -27,7 +27,7 @@ function List({ itemList, text, showEditForm, showAddForm, deleteItem }) {
 
   return (
     <>
-      {list}
+      <div className="list-container">{list}</div>
       <button onClick={showAddForm} className="cursor add-btn">
         Add new
       </button>

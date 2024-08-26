@@ -1,5 +1,5 @@
 .input-section {
-  min-width: 400px;
+  width: 400px;
 }
 
 .form,
@@ -7,8 +7,8 @@
   display: flex;
   flex-flow: column nowrap;
   border-radius: 10px;
-  padding: 0.7rem;
-  margin-bottom: 0.5rem;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
   box-shadow: -2px 2px 5px 0px rgb(198, 197, 197);
   background-color: #fff;
 
@@ -36,6 +36,7 @@
     color: white;
     border: 1px solid black;
     padding: 0.3rem 0.5rem;
+    margin-top: 1rem;
   }
   .add-btn:hover,
   .add-btn:focus {
@@ -71,7 +72,7 @@
   transition: color 0.25s;
 
   svg {
-    width: 1.5rem;
+    width: 1.2rem;
     position: absolute;
     right: 0;
     top: 0;
@@ -88,6 +89,10 @@
   color: var(--clr-accent);
 }
 
+.list-container {
+  margin-top: 1rem;
+}
+
 .card {
   border: 1px solid rgb(179, 179, 179);
   display: flex;
@@ -95,7 +100,7 @@
   padding: 0.2rem;
   border-radius: 5px;
   background-color: rgb(233, 233, 233);
-  margin: 0.5rem 0;
+  margin: 1rem 0;
 
   .delete-btn {
     border: none;

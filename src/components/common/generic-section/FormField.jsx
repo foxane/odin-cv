@@ -16,18 +16,22 @@ export default function FormField({ type, currentItem, inputChange }) {
         handler={inputChange}
       />
       <Input
+        id="location"
+        text="Location"
+        value={currentItem.location}
+        handler={inputChange}
+      />
+      <Input
         id="start"
         text={'Start date'}
         value={currentItem.start}
         handler={inputChange}
-        type="date"
       />
       <Input
         id="end"
         text={'End date'}
         value={currentItem.end}
         handler={inputChange}
-        type="date"
       />
     </>
   );
@@ -46,20 +50,23 @@ export default function FormField({ type, currentItem, inputChange }) {
         value={currentItem.position}
         handler={inputChange}
       />
-
+      <Input
+        id="location"
+        text="Location"
+        value={currentItem.location}
+        handler={inputChange}
+      />
       <Input
         id="start"
         text={'Start date'}
         value={currentItem.start}
         handler={inputChange}
-        type="date"
       />
       <Input
         id="end"
         text={'End date'}
         value={currentItem.end}
         handler={inputChange}
-        type="date"
       />
       <Textarea
         id="description"
