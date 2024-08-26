@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
 import { capitalize } from '../utils';
+import SectionHeader from '../SectionHeader';
 import List from './List';
 import Form from './Form';
 
 export default function Section({ items, setItems, type, textKey }) {
   const [display, setDisplay] = useState('list');
   const [currentItem, setCurrentItem] = useState(null);
+  const [isMinimized, setIsMinimized] = useState(true);
 
   // DEBUG: Show items
   useEffect(() => {
@@ -41,8 +43,12 @@ export default function Section({ items, setItems, type, textKey }) {
 
   return (
     <div className={`form ${type}`}>
-      <h3>{capitalize(type)}</h3>
-      {display === 'list' ? (
+      <SectionHeader
+        headerText={capitalize(type)}
+        handler={() => setIsMinimized(!isMinimized)}
+        isMinimized={isMinimized}
+      />
+      {isMinimized ? null : display === 'list' ? (
         <List
           itemList={items}
           text={textKey}

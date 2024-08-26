@@ -7,12 +7,13 @@ function List({ itemList, text, showEditForm, showAddForm, deleteItem }) {
     return (
       <div
         key={item.id}
-        className="edu-card cursor"
+        className="card cursor"
         onClick={() => showEditForm(item)}
+        tabIndex={0}
       >
         <p>{item[text]}</p>
         <button
-          className="delete-btn"
+          className="delete-btn cursor"
           onClick={(e) => {
             e.stopPropagation();
             deleteItem(item);
@@ -27,7 +28,9 @@ function List({ itemList, text, showEditForm, showAddForm, deleteItem }) {
   return (
     <>
       {list}
-      <button onClick={showAddForm}>Add new</button>
+      <button onClick={showAddForm} className="cursor add-btn">
+        Add new
+      </button>
     </>
   );
 }

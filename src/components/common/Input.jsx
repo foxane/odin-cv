@@ -11,7 +11,7 @@ function Textarea({ id, text, value, handler }) {
   return (
     <>
       <label htmlFor={id}>{text}</label>
-      <textarea id={id} onChange={handler} value={value}></textarea>
+      <textarea id={id} onChange={handler} value={value} rows={5}></textarea>
     </>
   );
 }

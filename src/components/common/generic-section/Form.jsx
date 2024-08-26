@@ -30,16 +30,20 @@ export default function Form({ type, item, showList, addItem, editItem }) {
   };
 
   return (
-    <form onSubmit={submitHandler} className="form">
+    <form onSubmit={submitHandler} className="sub-form">
       <FormField
         type={type}
         currentItem={currentItem}
         inputChange={inputChange}
       />
-      <button onClick={showList} type="button">
-        Cancel
-      </button>
-      <button type="submit">{isEdit ? 'Save' : 'Add'}</button>
+      <div className="form-btn">
+        <button onClick={showList} type="button" className="cursor cancel">
+          Cancel
+        </button>
+        <button type="submit" className="cursor submit">
+          {isEdit ? 'Save' : 'Add'}
+        </button>
+      </div>
     </form>
   );
 }
